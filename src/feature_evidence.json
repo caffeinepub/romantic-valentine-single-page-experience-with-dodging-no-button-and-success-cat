@@ -1,0 +1,79 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-full-screen-valentine-page-no-navigation-with-a-romantic-pink-and-white-theme-asking-the-user-to-be-the-creator-s-valentine-and-presenting-two-options-yes-and-no",
+      "featureTitle": "Create a single full-screen Valentine page (no navigation) with a romantic pink-and-white theme, asking the user to be the creator’s Valentine and presenting two options: “Yes” and “No”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/ValentinePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-no-button-to-evade-interaction-when-the-pointer-hovers-over-or-touches-the-no-button-it-moves-to-a-different-location-so-it-cannot-be-clicked",
+      "featureTitle": "Implement the “No” button to evade interaction: when the pointer hovers over (or touches) the “No” button, it moves to a different location so it cannot be clicked.",
+      "files": [
+        "frontend/src/pages/ValentinePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-the-user-clicks-yes-replace-the-question-ui-with-a-success-view-that-shows-the-text-good-choice-and-displays-a-cute-couple-cat-image",
+      "featureTitle": "When the user clicks “Yes”, replace the question UI with a success view that shows the text “Good choice” and displays a cute couple-cat image.",
+      "files": [
+        "frontend/src/pages/ValentinePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-image-s-as-static-assets-under-frontend-public-assets-generated-and-render-them-directly-from-the-frontend-do-not-proxy-through-the-backend",
+      "featureTitle": "Add the required generated image(s) as static assets under frontend/public/assets/generated and render them directly from the frontend (do not proxy through the backend).",
+      "files": [
+        "frontend/src/pages/ValentinePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

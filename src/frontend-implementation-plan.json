@@ -1,0 +1,85 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine single-page interaction with evasive “No” button and success cat image",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single full-viewport Valentine page (no navigation) with romantic pink/white theme, question text, and “Yes”/“No” buttons.",
+      "acceptanceCriteria": [
+        "The app shows one full-viewport page with a romantic pink/white styling (background, typography, spacing) and no additional pages or navigation elements.",
+        "The page clearly asks the Valentine question and shows two buttons labeled “Yes” and “No”.",
+        "Layout is responsive and usable on iPad-sized viewports in Chrome."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app’s single-screen shell that renders only the Valentine experience (no routing/navigation UI) and applies full-viewport layout constraints."
+        },
+        {
+          "path": "frontend/src/pages/ValentinePage.tsx",
+          "operation": "create",
+          "description": "Create the full-screen Valentine UI with romantic pink/white Tailwind styling, question copy in English, and two primary actions (“Yes” and “No”). Use the shadcn-ui Button component (and optionally Card) to provide consistent button styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add/define the global Tailwind base + any minimal global styling needed for the romantic pink/white look (while keeping the page itself responsible for most styling via Tailwind classes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the “No” button evade interaction by relocating on hover (pointer) and on touch start, staying within viewport bounds.",
+      "acceptanceCriteria": [
+        "On pointer hover (mouse/trackpad), the “No” button relocates before it can be clicked.",
+        "On touch devices, the “No” button also relocates on touch start/attempted interaction.",
+        "The “No” button stays within the visible bounds of the viewport (does not move off-screen)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ValentinePage.tsx",
+          "operation": "modify",
+          "description": "Implement evasive “No” button behavior: compute random (or pseudo-random) safe positions within the current viewport/container bounds, update position on pointer-enter/move and on touch-start, and ensure it never renders off-screen (account for button dimensions, safe margins, and resize). Use the shadcn-ui Button component for the “No” button while applying positioning via wrapper/container styles; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On “Yes” click, transition (no reload) to a success view showing “Good choice” and a cute couple-cat image.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a new view/state without page reload.",
+        "The success view includes the exact user-facing text: “Good choice”.",
+        "A cute couple-cat image is displayed on the success view."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ValentinePage.tsx",
+          "operation": "modify",
+          "description": "Add client-side state to swap from the question UI to a success view on “Yes” click (no page reload). Render the exact text “Good choice” and display the couple-cats image from the generated static asset path. Use shadcn-ui Button for the “Yes” action for consistent styling; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add the generated couple-cats image under frontend/public/assets/generated and load it as a static frontend asset in the success view.",
+      "acceptanceCriteria": [
+        "The generated image file(s) exist under frontend/public/assets/generated.",
+        "The success view loads the image via a static path from the frontend and displays it reliably in the browser."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/couple-cats.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated image asset file at the exact path frontend/public/assets/generated/couple-cats.dim_1024x1024.png for direct static serving by the frontend."
+        },
+        {
+          "path": "frontend/src/pages/ValentinePage.tsx",
+          "operation": "modify",
+          "description": "Reference and render the static image at frontend/public/assets/generated/couple-cats.dim_1024x1024.png in the success view using a direct static asset path (no backend/proxy). Ensure responsive sizing and accessible alt text."
+        }
+      ]
+    }
+  ]
+}

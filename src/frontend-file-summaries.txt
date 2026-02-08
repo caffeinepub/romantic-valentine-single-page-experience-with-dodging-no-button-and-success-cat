@@ -1,0 +1,6 @@
+{
+  "frontend/src/App.tsx": "Main application entry point that renders the ValentinePage component as the sole view.",
+  "frontend/src/pages/ValentinePage.tsx": "Full-screen romantic Valentine's Day page with a question, a \"Yes\" button, and an evasive \"No\" button that relocates on hover/touch; clicking \"Yes\" shows a success screen with the couple-cat image and \"Good choice\" message.",
+  "frontend/src/index.css": "Global styles with OKLCH color system including custom romantic pink/white theme tokens and floating heart animation for the Valentine's page.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color palette (light, medium, accent, dark) mapped to CSS custom properties for the Valentine theme."
+}

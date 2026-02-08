@@ -1,0 +1,95 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine single-page experience with dodging “No” button and success cat image",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single full-screen Valentine page (no navigation) with a romantic pink-and-white theme, asking the user to be the creator’s Valentine and presenting two options: “Yes” and “No”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create an interactive web page as a surprise for my boyfriend... ask him to be my Valentine.\nThere should be two options: Yes or No.\n... themed romantically with a pink and white color scheme"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app shows one full-viewport page with a romantic pink/white styling (background, typography, spacing) and no additional pages or navigation elements.",
+        "The page clearly asks the Valentine question and shows two buttons labeled “Yes” and “No”.",
+        "Layout is responsive and usable on iPad-sized viewports in Chrome."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the “No” button to evade interaction: when the pointer hovers over (or touches) the “No” button, it moves to a different location so it cannot be clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "When he hovers her cursor over No, it should move away so he cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On pointer hover (mouse/trackpad), the “No” button relocates before it can be clicked.",
+        "On touch devices, the “No” button also relocates on touch start/attempted interaction.",
+        "The “No” button stays within the visible bounds of the viewport (does not move off-screen)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user clicks “Yes”, replace the question UI with a success view that shows the text “Good choice” and displays a cute couple-cat image.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "When he  clicks Yes, show him a cute cupels cat \nimage telling him\n\"Good choice"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a new view/state without page reload.",
+        "The success view includes the exact user-facing text: “Good choice”.",
+        "A cute couple-cat image is displayed on the success view."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add the required generated image(s) as static assets under frontend/public/assets/generated and render them directly from the frontend (do not proxy through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "show him a cute cupels cat image"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The generated image file(s) exist under frontend/public/assets/generated.",
+        "The success view loads the image via a static path from the frontend and displays it reliably in the browser."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text.",
+    "Frontend must be implemented using React + TypeScript + Tailwind CSS within the existing Caffeine template.",
+    "Do not edit files in immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "No backend functionality is required for this feature (no persistence, no canister state)."
+  ],
+  "nonGoals": [
+    "Internet Identity authentication.",
+    "Storing user responses or analytics.",
+    "Multi-page routing or additional site sections beyond the single Valentine interaction."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Cute couple cats illustration in a romantic style (couple-cats.dim_1024x1024.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T05:03:50.912Z",
+  "summary": "Core Valentine page and success view appear to be implemented, including the exact success text “Good choice” and an <img> pointing to the required generated asset path. However, the required static image asset file itself is not present in the diff. The diff also adds backend and Internet Identity-related code despite being out of scope / non-goals, and it appears to touch paths declared immutable in the BuildRequest constraints.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Add the required generated image(s) as static assets under frontend/public/assets/generated and render them directly from the frontend (do not proxy through the backend).",
+      "reason": "The Valentine success view references \"/assets/generated/couple-cats.dim_1024x1024.png\", but the diff does not add the actual image file under frontend/public/assets/generated (no frontend/public/... files are listed as added).",
+      "evidence": [
+        "frontend/src/pages/ValentinePage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added backend canister entry file even though no backend functionality is required.",
+      "reason": "BuildRequest explicitly states no backend functionality is required; diff adds a backend actor file.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Internet Identity provider wiring and actor hook added, despite Internet Identity authentication being a non-goal and not required for the Valentine page.",
+      "reason": "Non-goals include Internet Identity authentication, but the diff adds InternetIdentityProvider usage and actor/identity hooks.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Changes/additions in paths listed as immutable by the BuildRequest constraints.",
+      "reason": "Constraints say not to edit specific immutable paths, but the diff includes additions for those exact paths (suggesting they were created/overwritten).",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/ValentinePage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
